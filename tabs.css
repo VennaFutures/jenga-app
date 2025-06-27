@@ -1,0 +1,27 @@
+.tabs {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  background: white;
+  border-top: 1px solid #ccc;
+}
+.tabs button {
+  flex: 1;
+  padding: 12px;
+  background: white;
+  border: none;
+  color: teal;
+  font-weight: bold;
+}
+.tabs button.active {
+  background-color: teal;
+  color: white;
+}
+.tab-content {
+  display: none;
+  padding: 20px;
+}
+.tab-content.active {
+  display: block;
+}
