@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JENGA – Unlocking Futures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; color: #333; }
+    header { background: teal; color: white; padding: 20px; text-align: center; }
+    .section { padding: 20px; border-bottom: 1px solid #ccc; }
+    h2 { color: teal; }
+    button { background: teal; color: white; padding: 10px 15px; border: none; border-radius: 5px; }
+    .card { background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    #chatbox { background: #fff; padding: 15px; border-radius: 8px; margin-top: 10px; max-height: 200px; overflow-y: auto; }
+    #chatlog { font-size: 14px; margin-bottom: 10px; }
+    #userInput { width: 80%; padding: 8px; }
+    #sendBtn { padding: 8px 12px; background: teal; color: white; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>JENGA Career Hub</h1>
+    <p>Unlocking Futures, One Opportunity at a Time</p>
+  </header>
+
+  <div class="section">
+    <h2>💬 Career Chatbot</h2>
+    <div class="card">
+      <p>Ask me anything about scholarships, mentorship, or jobs!</p>
+      <div id="chatbox">
+        <div id="chatlog">👋 Hello! How can I help you today?</div>
+      </div>
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const chatlog = document.getElementById("chatlog");
+    const userInput = document.getElementById("userInput");
+    const sendBtn = document.getElementById("sendBtn");
+
+    sendBtn.onclick = () => {
+      const msg = userInput.value.trim();
+      if (msg) {
+        chatlog.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
+        let reply = "🤖 I'm still learning! Try asking about scholarships or mentorship.";
+        if (msg.toLowerCase().includes("scholarship")) reply = "🎓 You can find scholarships under the Opportunity Radar tab.";
+        if (msg.toLowerCase().includes("mentor")) reply = "🤝 Try the 'Find a Mentor' section to get matched!";
+        chatlog.innerHTML += `<div><strong>Bot:</strong> ${reply}</div>`;
+        userInput.value = "";
+        chatlog.scrollTop = chatlog.scrollHeight;
+      }
+    };
+  </script>
+
+</body>
+</html>
